@@ -14,7 +14,7 @@ import android.widget.Toast;
  */
 public class Choice extends DialogFragment {
     String selection;
-    final CharSequence[] items={"1","2","3","4","5","6","7","8","9","10"};
+    final CharSequence[] items={"1","3","5","10"};
     public Dialog onCreateDialog(Bundle savedInstaceState) {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         builder.setTitle("Choose required number of reviews").setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
