@@ -12,16 +12,13 @@
         android:id="@+id/textView" />
 
     <Spinner
-        android:id="@+id/planets_spinner"
+        android:id="@+id/products_spinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_marginTop="25dp"
         android:labelFor="@string/Choose_Product"
-        android:entries="@array/planets_array"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="53dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -29,22 +26,21 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:id="@+id/editText"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="Number of Reviews"
         android:onClick="SelectNumber"
-        android:layout_below="@+id/planets_spinner"
+        android:layout_below="@+id/products_spinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="match_parent"
@@ -64,17 +60,18 @@
         android:layout_height="wrap_content"
         android:text="Find"
         android:id="@+id/button"
-        android:layout_marginBottom="000dp"
+        android:onClick="Search"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/button1"
+        android:layout_alignEnd="@+id/button1" />
 
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:text="OK"
         android:id="@+id/button2"
         android:layout_below="@+id/editText"
