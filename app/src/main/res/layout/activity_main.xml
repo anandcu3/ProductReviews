@@ -73,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="OK"
+        android:onClick="AddProduct"
         android:id="@+id/button2"
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true" />
