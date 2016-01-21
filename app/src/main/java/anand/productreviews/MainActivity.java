@@ -3,6 +3,7 @@ package anand.productreviews;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.app.FragmentManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,10 +29,12 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URLEncoder;
 
 
 public class MainActivity extends FragmentActivity {
 
+    String addp="";
     Context c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +42,30 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         new AddSpinner().execute();
         c = this;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
     }
 
-
+    public void addprod(){
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            addp= URLEncoder.encode(addp);
+            HttpGet httpget = new HttpGet("http://reviewrating.esy.es/addnewproduct.php?pname="+addp);
+            HttpResponse response = httpclient.execute(httpget);
+            String stat="";
+            BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"), 8);
+            stat=br.readLine().trim();
+            if (stat.contains("OK")){
+                Toast.makeText(c,"Please check back in sometime while we look for some reviews!",Toast.LENGTH_LONG).show();
+            }
+            else{
+                Toast.makeText(c,"Please try again! Could not reach server!",Toast.LENGTH_LONG).show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,6 +100,14 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    public void AddProduct(View v){
+
+        final EditText e_addproduct=(EditText) findViewById(R.id.add);
+        Button add=(Button) findViewById(R.id.button2);
+        addp=e_addproduct.getText().toString();
+        addprod();
+
+    }
 
     //AsyncTask to add to spinner
     private class AddSpinner extends AsyncTask<String,JSONObject,String[]> {
