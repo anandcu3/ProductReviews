@@ -2,6 +2,7 @@ package anand.productreviews;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
@@ -35,6 +36,7 @@ import java.net.URLEncoder;
 public class MainActivity extends FragmentActivity {
 
     String addp="";
+    public static String prod_rev="";
     Context c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,26 +48,32 @@ public class MainActivity extends FragmentActivity {
         StrictMode.setThreadPolicy(policy);
 
     }
+    public void Search(View v){
+        Spinner mySpinner=(Spinner) findViewById(R.id.products_spinner);
+        prod_rev = mySpinner.getSelectedItem().toString();
+        Intent launchActivity2 = new Intent(MainActivity.this, DisplayReviews.class);
+        startActivity(launchActivity2 );
+    }
+    public void addprod() {
 
-    public void addprod(){
         try {
             HttpClient httpclient = new DefaultHttpClient();
-            addp= URLEncoder.encode(addp);
-            HttpGet httpget = new HttpGet("http://reviewrating.esy.es/addnewproduct.php?pname="+addp);
+            addp = URLEncoder.encode(addp);
+            HttpGet httpget = new HttpGet("http://reviewrating.esy.es/addnewproduct.php?pname=" + addp);
             HttpResponse response = httpclient.execute(httpget);
-            String stat="";
+            String stat = "";
             BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"), 8);
-            stat=br.readLine().trim();
-            if (stat.contains("OK")){
-                Toast.makeText(c,"Please check back in sometime while we look for some reviews!",Toast.LENGTH_LONG).show();
-            }
-            else{
-                Toast.makeText(c,"Please try again! Could not reach server!",Toast.LENGTH_LONG).show();
+            stat = br.readLine().trim();
+            if (stat.contains("OK")) {
+                Toast.makeText(c, "Please check back in sometime while we look for some reviews!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(c, "Please try again! Could not reach server!", Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,12 +100,7 @@ public class MainActivity extends FragmentActivity {
     public void SelectNumber(View v){
         FragmentManager fm = getFragmentManager();
         Choice my_dialog= new Choice();
-        my_dialog.show(fm,"my_dialog");
-    }
-
-    public void Search( View v)
-    {
-
+        my_dialog.show(fm, "my_dialog");
     }
 
     public void AddProduct(View v){
@@ -105,8 +108,12 @@ public class MainActivity extends FragmentActivity {
         final EditText e_addproduct=(EditText) findViewById(R.id.add);
         Button add=(Button) findViewById(R.id.button2);
         addp=e_addproduct.getText().toString();
-        addprod();
-
+        if(addp.equals("")||addp.equals(null)){
+            Toast.makeText(c, "Please Enter the product!!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            addprod();
+        }
     }
 
     //AsyncTask to add to spinner
@@ -165,7 +172,7 @@ public class MainActivity extends FragmentActivity {
                 //publishProgress();
                 e.printStackTrace();
             }
-            return new String[]{"emoty"};
+            return new String[]{"empty"};
         }
 
 

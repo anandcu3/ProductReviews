@@ -3,6 +3,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="Choose_Product">Choose Product</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_display_reviews">DisplayReviews</string>
 
     </resources>
 

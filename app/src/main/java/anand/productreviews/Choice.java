@@ -13,7 +13,8 @@ import android.widget.Toast;
  * Created by ANIL BALAJI on 20-01-2016.
  */
 public class Choice extends DialogFragment {
-    String selection;
+    public static String selection="5";
+
     final CharSequence[] items={"1","3","5","10"};
     public Dialog onCreateDialog(Bundle savedInstaceState) {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -61,6 +62,7 @@ public class Choice extends DialogFragment {
         }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(),"Choice selected is: "+selection,Toast.LENGTH_SHORT).show();
+
             }
         });
         return builder.create();
