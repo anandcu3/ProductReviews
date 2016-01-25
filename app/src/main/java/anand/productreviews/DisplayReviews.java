@@ -1,14 +1,17 @@
 package anand.productreviews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -80,10 +83,16 @@ public class DisplayReviews extends ActionBarActivity {
               if(no_of_rev.equals("1")){
                     al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    rev= al.get(0)+")"+al.get(1);
+                    rev="&#9733"+al.get(1)+"\n\n";
+                    RatingBar rb=new RatingBar(this);
+                    int rt= Integer.parseInt(al.get(0).trim());
+
+
+
                     TextView nm=new TextView(this);
                     nm.setText(rev);
                     nm.setMaxLines(5);
+                    layout.addView(rb);
                     layout.addView(nm);
                     et[0]=nm;
 
@@ -171,8 +180,81 @@ public class DisplayReviews extends ActionBarActivity {
                     al.add( obj.getString("pr4"));
                     al.add( obj.getString("r4"));
                     al.add( obj.getString("pr5"));
-                    al.add( obj.getString("r5"));
-                    rev=al.get(0)+")"+al.get(1)+"\n\n"+al.get(2)+")"+al.get(3)+"\n\n"+al.get(4)+")"+al.get(5)+"\n\n"+al.get(6)+")"+al.get(7)+"\n\n"+al.get(8)+")"+al.get(9);
+                    al.add(obj.getString("r5"));
+                  for(int i=0;i<5;i++){
+                      TextView nm=new TextView(this);
+                      nm.setText(rev);
+                      nm.setMaxLines(5);
+                      layout.addView(nm);
+                      et[i]=nm;
+
+                  }
+                  et[0].setText(al.get(0) + ")" + al.get(1));
+                  et[1].setText(al.get(2) + ")" + al.get(3));
+                  et[2].setText(al.get(4) + ")" + al.get(5));
+                  et[3].setText(al.get(6) + ")" + al.get(7));
+                  et[4].setText(al.get(8) + ")" + al.get(9));
+                  et[0].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[0].getMaxLines() == 5) {
+                              et[0].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[0].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+                  et[1].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[1].getMaxLines() == 5) {
+                              et[1].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[1].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[2].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[2].getMaxLines() == 5) {
+                              et[2].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[2].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[3].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[3].getMaxLines() == 5) {
+                              et[3].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[3].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+                  et[4].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[4].getMaxLines() == 5) {
+                              et[4].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[4].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+
+
+                  //rev=al.get(0)+")"+al.get(1)+"\n\n"+al.get(2)+")"+al.get(3)+"\n\n"+al.get(4)+")"+al.get(5)+"\n\n"+al.get(6)+")"+al.get(7)+"\n\n"+al.get(8)+")"+al.get(9);
                     //et.setText(rev);
                 }
                 else {
@@ -196,7 +278,139 @@ public class DisplayReviews extends ActionBarActivity {
                     al.add( obj.getString("r9"));
                     al.add( obj.getString("pr10"));
                     al.add( obj.getString("r10"));
-                    rev=al.get(0)+")"+al.get(1)+"\n\n"+al.get(2)+")"+al.get(3)+"\n\n"+al.get(4)+")"+al.get(5)+"\n\n"+al.get(6)+")"+al.get(7)+"\n\n"+al.get(8)+")"+al.get(9)+"\n\n"+al.get(10)+")"+al.get(11)+"\n\n"+al.get(12)+")"+al.get(13)+"\n\n"+al.get(14)+")"+al.get(15)+"\n\n"+al.get(16)+")"+al.get(17)+"\n\n"+al.get(18)+")"+al.get(19);
+                  for(int i=0;i<10;i++){
+                      TextView nm=new TextView(this);
+                      nm.setText(rev);
+                      nm.setMaxLines(5);
+                      layout.addView(nm);
+                      et[i]=nm;
+
+                  }
+                  et[0].setText(al.get(0) + ")" + al.get(1));
+                  et[1].setText(al.get(2) + ")" + al.get(3));
+                  et[2].setText(al.get(4) + ")" + al.get(5));
+                  et[3].setText(al.get(6) + ")" + al.get(7));
+                  et[4].setText(al.get(8) + ")" + al.get(9));
+                  et[5].setText(al.get(10) + ")" + al.get(11));
+                  et[6].setText(al.get(12) + ")" + al.get(13));
+                  et[7].setText(al.get(14) + ")" + al.get(15));
+                  et[8].setText(al.get(16) + ")" + al.get(17));
+                  et[9].setText(al.get(18) + ")" + al.get(19));
+                  et[0].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[0].getMaxLines() == 5) {
+                              et[0].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[0].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+                  et[1].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[1].getMaxLines() == 5) {
+                              et[1].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[1].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[2].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[2].getMaxLines() == 5) {
+                              et[2].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[2].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[3].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[3].getMaxLines() == 5) {
+                              et[3].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[3].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+                  et[4].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[4].getMaxLines() == 5) {
+                              et[4].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[4].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[5].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[5].getMaxLines() == 5) {
+                              et[5].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[5].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+                  et[6].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[6].getMaxLines() == 5) {
+                              et[6].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[6].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[7].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[7].getMaxLines() == 5) {
+                              et[7].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[7].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                  et[8].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[8].getMaxLines() == 5) {
+                              et[8].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[8].setMaxLines(5);
+                          }
+
+                      }
+                  });
+
+                  et[9].setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          if (et[9].getMaxLines() == 5) {
+                              et[9].setMaxLines(Integer.MAX_VALUE);
+                          } else {
+                              et[9].setMaxLines(5);
+                          }
+
+                      }
+                  });
+                    //rev=al.get(0)+")"+al.get(1)+"\n\n"+al.get(2)+")"+al.get(3)+"\n\n"+al.get(4)+")"+al.get(5)+"\n\n"+al.get(6)+")"+al.get(7)+"\n\n"+al.get(8)+")"+al.get(9)+"\n\n"+al.get(10)+")"+al.get(11)+"\n\n"+al.get(12)+")"+al.get(13)+"\n\n"+al.get(14)+")"+al.get(15)+"\n\n"+al.get(16)+")"+al.get(17)+"\n\n"+al.get(18)+")"+al.get(19);
                     //et.setText(rev);
                 }
 

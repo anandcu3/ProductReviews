@@ -142,7 +142,7 @@ public class MainActivity extends FragmentActivity {
                 }
 
                 String products = sb.toString();
-                String[] lp = products.split(",");
+                String[] lp = products.trim().split(",");
                 return lp;
                 //ArrayList<MyRow> al = new ArrayList<MyRow>();
 
