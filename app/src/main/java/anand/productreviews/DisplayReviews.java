@@ -56,9 +56,7 @@ public class DisplayReviews extends ActionBarActivity {
         Choice ch=new Choice();
         no_of_rev=ch.selection;
         prod_choice=ma.prod_rev;
-        setTitle(prod_choice+" : "+no_of_rev+"Reviews");
-        Toast.makeText(this, no_of_rev+"Reviews", Toast.LENGTH_LONG).show();
-        Toast.makeText(this, prod_choice, Toast.LENGTH_LONG).show();
+        setTitle(prod_choice+" : "+no_of_rev+" Reviews");
         try {
             HttpClient httpclient = new DefaultHttpClient();
             prod_choice = URLEncoder.encode(prod_choice);

@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
-        android:text="Number of Reviews"
+        android:text="Set Number of Reviews"
         android:onClick="SelectNumber"
         android:layout_below="@+id/products_spinner"
         android:layout_alignParentLeft="true"
