@@ -146,7 +146,7 @@ public class MainActivity extends FragmentActivity {
                 return lp;
                 //ArrayList<MyRow> al = new ArrayList<MyRow>();
 
-            /*    try {
+            /*    try{
 
                     JSONArray arr = new JSONArray( sb.toString() );
                     for( int i=0 ;i<arr.length()  ; i++)
