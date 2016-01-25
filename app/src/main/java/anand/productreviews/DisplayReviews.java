@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -71,7 +72,7 @@ public class DisplayReviews extends ActionBarActivity {
 
             ArrayList<String> al = new ArrayList<String>();
             final TextView[] et=new TextView[10];
-            RelativeLayout layout=(RelativeLayout)findViewById(R.id.layout1);
+            LinearLayout layout=(LinearLayout)findViewById(R.id.layout1);
            // et.setMovementMethod(new ScrollingMovementMethod());
             try {
                 JSONArray arr = new JSONArray( sb.toString() );
@@ -119,6 +120,9 @@ public class DisplayReviews extends ActionBarActivity {
                       et[i]=nm;
 
                   }
+                  et[0].setText(al.get(0)+")"+al.get(1));
+                  et[1].setText(al.get(2) + ")" + al.get(3));
+                  et[2].setText(al.get(4) + ")" + al.get(5));
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
@@ -135,10 +139,9 @@ public class DisplayReviews extends ActionBarActivity {
                   et[1].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if(et[1].getMaxLines()==5) {
+                          if (et[1].getMaxLines() == 5) {
                               et[1].setMaxLines(Integer.MAX_VALUE);
-                          }
-                          else{
+                          } else {
                               et[1].setMaxLines(5);
                           }
 
@@ -147,10 +150,9 @@ public class DisplayReviews extends ActionBarActivity {
                   et[2].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if(et[2].getMaxLines()==5) {
+                          if (et[2].getMaxLines() == 5) {
                               et[2].setMaxLines(Integer.MAX_VALUE);
-                          }
-                          else{
+                          } else {
                               et[2].setMaxLines(5);
                           }
 
