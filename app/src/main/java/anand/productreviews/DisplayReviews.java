@@ -46,7 +46,7 @@ public class DisplayReviews extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_display_reviews, menu);
+
         return true;
     }
 
@@ -56,6 +56,7 @@ public class DisplayReviews extends ActionBarActivity {
         Choice ch=new Choice();
         no_of_rev=ch.selection;
         prod_choice=ma.prod_rev;
+        setTitle(prod_choice+" : "+no_of_rev+"Reviews");
         Toast.makeText(this, no_of_rev+"Reviews", Toast.LENGTH_LONG).show();
         Toast.makeText(this, prod_choice, Toast.LENGTH_LONG).show();
         try {
@@ -83,27 +84,29 @@ public class DisplayReviews extends ActionBarActivity {
               if(no_of_rev.equals("1")){
                     al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    rev="&#9733"+al.get(1)+"\n\n";
-                    RatingBar rb=new RatingBar(this);
+                    rev=al.get(1)+"\n\n";
                     int rt= Integer.parseInt(al.get(0).trim());
-
-
-
+                    String rating="";
+                    for (int i=0 ; i<5 ;i++){
+                        if(i<rt){
+                            rating=rating+"\u2605";
+                        }
+                        else rating=rating+"\u2606";
+                    }
                     TextView nm=new TextView(this);
-                    nm.setText(rev);
-                    nm.setMaxLines(5);
-                    layout.addView(rb);
+                    nm.setText("\n\n\n\n"+rating + "\n" + rev );
+                    nm.setMaxLines(9);
                     layout.addView(nm);
                     et[0]=nm;
 
                       et[0].setOnClickListener(new View.OnClickListener() {
                           @Override
                           public void onClick(View v) {
-                              if(et[0].getMaxLines()==5) {
+                              if(et[0].getMaxLines()==9) {
                                   et[0].setMaxLines(Integer.MAX_VALUE);
                               }
                               else{
-                                  et[0].setMaxLines(5);
+                                  et[0].setMaxLines(9);
                               }
 
                           }
@@ -124,22 +127,45 @@ public class DisplayReviews extends ActionBarActivity {
                   for(int i=0;i<3;i++){
                       TextView nm=new TextView(this);
                       nm.setText(rev);
-                      nm.setMaxLines(5);
+                      nm.setMaxLines(9);
                       layout.addView(nm);
                       et[i]=nm;
 
                   }
-                  et[0].setText(al.get(0)+")"+al.get(1));
-                  et[1].setText(al.get(2) + ")" + al.get(3));
-                  et[2].setText(al.get(4) + ")" + al.get(5));
+                  int rt= Integer.parseInt(al.get(0).trim());
+                  String rating="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt){
+                          rating=rating+"\u2605";
+                      }
+                      else rating=rating+"\u2606";
+                  }
+                  et[0].setText("\n\n\n\n"+rating+"\n"+al.get(1));
+                  int rt1= Integer.parseInt(al.get(2).trim());
+                  String rating1="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt1){
+                          rating1=rating1+"\u2605";
+                      }
+                      else rating1=rating1+"\u2606";
+                  }
+                  et[1].setText("\n\n\n\n"+rating1 + "\n" + al.get(3));
+                  int rt2= Integer.parseInt(al.get(4).trim());
+                  String rating2="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt2){
+                          rating2=rating2+"\u2605";
+                      }
+                      else rating2=rating2+"\u2606";
+                  }
+                  et[2].setText("\n\n\n\n"+rating2 + "\n" + al.get(5));
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if(et[0].getMaxLines()==5) {
+                          if (et[0].getMaxLines() == 9) {
                               et[0].setMaxLines(Integer.MAX_VALUE);
-                          }
-                          else{
-                              et[0].setMaxLines(5);
+                          } else {
+                              et[0].setMaxLines(9);
                           }
 
                       }
@@ -148,10 +174,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[1].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[1].getMaxLines() == 5) {
+                          if (et[1].getMaxLines() == 9) {
                               et[1].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[1].setMaxLines(5);
+                              et[1].setMaxLines(9);
                           }
 
                       }
@@ -159,10 +185,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[2].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[2].getMaxLines() == 5) {
+                          if (et[2].getMaxLines() == 9) {
                               et[2].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[2].setMaxLines(5);
+                              et[2].setMaxLines(9);
                           }
 
                       }
@@ -184,23 +210,63 @@ public class DisplayReviews extends ActionBarActivity {
                   for(int i=0;i<5;i++){
                       TextView nm=new TextView(this);
                       nm.setText(rev);
-                      nm.setMaxLines(5);
+                      nm.setMaxLines(9);
                       layout.addView(nm);
                       et[i]=nm;
 
                   }
-                  et[0].setText(al.get(0) + ")" + al.get(1));
-                  et[1].setText(al.get(2) + ")" + al.get(3));
-                  et[2].setText(al.get(4) + ")" + al.get(5));
-                  et[3].setText(al.get(6) + ")" + al.get(7));
-                  et[4].setText(al.get(8) + ")" + al.get(9));
+                  int rt= Integer.parseInt(al.get(0).trim());
+                  String rating="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt){
+                          rating=rating+"\u2605";
+                      }
+                      else rating=rating+"\u2606";
+                  }
+                  et[0].setText("\n\n\n\n"+rating+"\n"+al.get(1));
+                  int rt1= Integer.parseInt(al.get(2).trim());
+                  String rating1="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt1){
+                          rating1=rating1+"\u2605";
+                      }
+                      else rating1=rating1+"\u2606";
+                  }
+                  et[1].setText("\n\n\n\n"+rating1 + "\n" + al.get(3));
+                  int rt2= Integer.parseInt(al.get(4).trim());
+                  String rating2="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt2){
+                          rating2=rating2+"\u2605";
+                      }
+                      else rating2=rating2+"\u2606";
+                  }
+                  et[2].setText("\n\n\n\n"+rating2 + "\n" + al.get(5));
+                  int rt3= Integer.parseInt(al.get(6).trim());
+                  String rating3="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt3){
+                          rating3=rating3+"\u2605";
+                      }
+                      else rating3=rating3+"\u2606";
+                  }
+                  et[3].setText("\n\n\n\n"+rating3 + "\n" + al.get(7));
+                  int rt4= Integer.parseInt(al.get(8).trim());
+                  String rating4="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt4){
+                          rating4=rating4+"\u2605";
+                      }
+                      else rating4=rating4+"\u2606";
+                  }
+                  et[4].setText("\n\n\n\n"+rating4 + "\n" + al.get(9));
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[0].getMaxLines() == 5) {
+                          if (et[0].getMaxLines() == 9) {
                               et[0].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[0].setMaxLines(5);
+                              et[0].setMaxLines(9);
                           }
 
                       }
@@ -209,10 +275,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[1].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[1].getMaxLines() == 5) {
+                          if (et[1].getMaxLines() == 9) {
                               et[1].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[1].setMaxLines(5);
+                              et[1].setMaxLines(9);
                           }
 
                       }
@@ -220,10 +286,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[2].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[2].getMaxLines() == 5) {
+                          if (et[2].getMaxLines() == 9) {
                               et[2].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[2].setMaxLines(5);
+                              et[2].setMaxLines(9);
                           }
 
                       }
@@ -231,10 +297,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[3].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[3].getMaxLines() == 5) {
+                          if (et[3].getMaxLines() == 9) {
                               et[3].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[3].setMaxLines(5);
+                              et[3].setMaxLines(9);
                           }
 
                       }
@@ -243,10 +309,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[4].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[4].getMaxLines() == 5) {
+                          if (et[4].getMaxLines() == 9) {
                               et[4].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[4].setMaxLines(5);
+                              et[4].setMaxLines(9);
                           }
 
                       }
@@ -281,28 +347,109 @@ public class DisplayReviews extends ActionBarActivity {
                   for(int i=0;i<10;i++){
                       TextView nm=new TextView(this);
                       nm.setText(rev);
-                      nm.setMaxLines(5);
+                      nm.setMaxLines(9);
                       layout.addView(nm);
                       et[i]=nm;
 
                   }
-                  et[0].setText(al.get(0) + ")" + al.get(1));
-                  et[1].setText(al.get(2) + ")" + al.get(3));
-                  et[2].setText(al.get(4) + ")" + al.get(5));
-                  et[3].setText(al.get(6) + ")" + al.get(7));
-                  et[4].setText(al.get(8) + ")" + al.get(9));
-                  et[5].setText(al.get(10) + ")" + al.get(11));
-                  et[6].setText(al.get(12) + ")" + al.get(13));
-                  et[7].setText(al.get(14) + ")" + al.get(15));
-                  et[8].setText(al.get(16) + ")" + al.get(17));
-                  et[9].setText(al.get(18) + ")" + al.get(19));
+                  int rt= Integer.parseInt(al.get(0).trim());
+                  String rating="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt){
+                          rating=rating+"\u2605";
+                      }
+                      else rating=rating+"\u2606";
+                  }
+                  et[0].setText("\n\n\n\n"+rating+"\n"+al.get(1));
+                  int rt1= Integer.parseInt(al.get(2).trim());
+                  String rating1="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt1){
+                          rating1=rating1+"\u2605";
+                      }
+                      else rating1=rating1+"\u2606";
+                  }
+                  et[1].setText("\n\n\n\n"+rating1 + "\n" + al.get(3));
+                  int rt2= Integer.parseInt(al.get(4).trim());
+                  String rating2="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt2){
+                          rating2=rating2+"\u2605";
+                      }
+                      else rating2=rating2+"\u2606";
+                  }
+                  et[2].setText("\n\n\n\n"+rating2 + "\n" + al.get(5));
+                  int rt3= Integer.parseInt(al.get(6).trim());
+                  String rating3="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt3){
+                          rating3=rating3+"\u2605";
+                      }
+                      else rating3=rating3+"\u2606";
+                  }
+                  et[3].setText("\n\n\n\n"+rating3 + "\n" + al.get(7));
+                  int rt4= Integer.parseInt(al.get(8).trim());
+                  String rating4="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt4){
+                          rating4=rating4+"\u2605";
+                      }
+                      else rating4=rating4+"\u2606";
+                  }
+                  et[4].setText("\n\n\n\n"+rating4 + "\n" + al.get(9));
+                  int rt5= Integer.parseInt(al.get(10).trim());
+                  String rating5="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt5){
+                          rating5=rating5+"\u2605";
+                      }
+                      else rating5=rating5+"\u2606";
+                  }
+                  et[5].setText("\n\n\n\n"+rating5 + "\n" +al.get(11));
+                  int rt6= Integer.parseInt(al.get(12).trim());
+                  String rating6="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt6){
+                          rating6=rating6+"\u2605";
+                      }
+                      else rating6=rating6+"\u2606";
+                  }
+                  et[6].setText("\n\n\n\n"+rating6 + "\n" + al.get(13));
+                  int rt7= Integer.parseInt(al.get(14).trim());
+                  String rating7="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt7){
+                          rating7=rating7+"\u2605";
+                      }
+                      else rating7=rating7+"\u2606";
+                  }
+                  et[7].setText("\n\n\n\n"+rating7 + "\n" + al.get(15));
+                  int rt8= Integer.parseInt(al.get(16).trim());
+                  String rating8="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt8){
+                          rating8=rating8+"\u2605";
+                      }
+                      else rating8=rating8+"\u2606";
+                  }
+                  et[8].setText("\n\n\n\n"+rating8 + "\n" + al.get(17));
+                  int rt9= Integer.parseInt(al.get(18).trim());
+                  String rating9="";
+                  for (int i=0 ; i<5 ;i++){
+                      if(i<rt9){
+                          rating9=rating9+"\u2605";
+                      }
+                      else rating9=rating9+"\u2606";
+                  }
+                  et[9].setText("\n\n\n\n"+rating9 + "\n" + al.get(19));
+
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[0].getMaxLines() == 5) {
+                          if (et[0].getMaxLines() == 9) {
                               et[0].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[0].setMaxLines(5);
+                              et[0].setMaxLines(9);
                           }
 
                       }
@@ -311,10 +458,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[1].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[1].getMaxLines() == 5) {
+                          if (et[1].getMaxLines() == 9) {
                               et[1].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[1].setMaxLines(5);
+                              et[1].setMaxLines(9);
                           }
 
                       }
@@ -322,10 +469,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[2].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[2].getMaxLines() == 5) {
+                          if (et[2].getMaxLines() == 9) {
                               et[2].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[2].setMaxLines(5);
+                              et[2].setMaxLines(9);
                           }
 
                       }
@@ -333,10 +480,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[3].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[3].getMaxLines() == 5) {
+                          if (et[3].getMaxLines() == 9) {
                               et[3].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[3].setMaxLines(5);
+                              et[3].setMaxLines(9);
                           }
 
                       }
@@ -345,10 +492,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[4].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[4].getMaxLines() == 5) {
+                          if (et[4].getMaxLines() == 9) {
                               et[4].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[4].setMaxLines(5);
+                              et[4].setMaxLines(9);
                           }
 
                       }
@@ -356,10 +503,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[5].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[5].getMaxLines() == 5) {
+                          if (et[5].getMaxLines() == 9) {
                               et[5].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[5].setMaxLines(5);
+                              et[5].setMaxLines(9);
                           }
 
                       }
@@ -368,10 +515,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[6].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[6].getMaxLines() == 5) {
+                          if (et[6].getMaxLines() == 9) {
                               et[6].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[6].setMaxLines(5);
+                              et[6].setMaxLines(9);
                           }
 
                       }
@@ -379,10 +526,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[7].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[7].getMaxLines() == 5) {
+                          if (et[7].getMaxLines() == 9) {
                               et[7].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[7].setMaxLines(5);
+                              et[7].setMaxLines(9);
                           }
 
                       }
@@ -390,10 +537,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[8].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[8].getMaxLines() == 5) {
+                          if (et[8].getMaxLines() == 9) {
                               et[8].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[8].setMaxLines(5);
+                              et[8].setMaxLines(9);
                           }
 
                       }
@@ -402,10 +549,10 @@ public class DisplayReviews extends ActionBarActivity {
                   et[9].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
-                          if (et[9].getMaxLines() == 5) {
+                          if (et[9].getMaxLines() == 9) {
                               et[9].setMaxLines(Integer.MAX_VALUE);
                           } else {
-                              et[9].setMaxLines(5);
+                              et[9].setMaxLines(9);
                           }
 
                       }
