@@ -65,7 +65,10 @@ public class MainActivity extends FragmentActivity {
             stat = br.readLine().trim();
             if (stat.contains("OK")) {
                 Toast.makeText(c, "Please check back in sometime while we look for some reviews!", Toast.LENGTH_LONG).show();
-            } else {
+            } else if(stat.contains("1062")) {
+                Toast.makeText(c, "We are working on adding this product to the above list!", Toast.LENGTH_LONG).show();
+            }
+            else {
                 Toast.makeText(c, "Please try again! Could not reach server!", Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
