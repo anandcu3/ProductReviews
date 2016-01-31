@@ -49,6 +49,7 @@ public class MainActivity extends FragmentActivity {
     public void Search(View v){
         Spinner mySpinner=(Spinner) findViewById(R.id.products_spinner);
         prod_rev = mySpinner.getSelectedItem().toString();
+        //Toast.makeText(this,"uvj",Toast.LENGTH_LONG).show();
         Intent launchActivity2 = new Intent(MainActivity.this, DisplayReviews.class);
         startActivity(launchActivity2 );
     }

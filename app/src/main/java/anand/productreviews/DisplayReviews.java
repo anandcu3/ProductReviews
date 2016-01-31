@@ -1,19 +1,11 @@
 package anand.productreviews;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,11 +59,12 @@ public class DisplayReviews extends ActionBarActivity {
             StringBuilder sb = new StringBuilder();
             String rev="";
             String line = "";
+
             while( (line = br.readLine())!= null )
             {
                 sb.append(line);
             }
-
+            //Toast.makeText(this,sb.toString(),Toast.LENGTH_LONG).show();
             ArrayList<String> al = new ArrayList<String>();
             final TextView[] et=new TextView[10];
             LinearLayout layout=(LinearLayout)findViewById(R.id.layout1);
@@ -80,19 +73,19 @@ public class DisplayReviews extends ActionBarActivity {
                 JSONArray arr = new JSONArray( sb.toString() );
                 JSONObject obj = arr.getJSONObject(0);
               if(no_of_rev.equals("1")){
-                    al.add( obj.getString("pr1"));
+                    //al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    rev=al.get(1)+"\n\n";
-                    int rt= Integer.parseInt(al.get(0).trim());
-                    String rating="";
-                    for (int i=0 ; i<5 ;i++){
-                        if(i<rt){
-                            rating=rating+"\u2605";
-                        }
-                        else rating=rating+"\u2606";
-                    }
+                    rev=al.get(0)+"\n\n";
+                  //  int rt= Integer.parseInt(al.get(0).trim());
+                    //String rating="";
+                    //for (int i=0 ; i<5 ;i++){
+                      //  if(i<rt){
+                        //    rating=rating+"\u2605";
+                        //}
+                       // else rating=rating+"\u2606";
+                    //}
                     TextView nm=new TextView(this);
-                    nm.setText("\n\n\n\n"+rating + "\n" + rev );
+                    nm.setText("\n\n\n\n"+ rev );
                     nm.setMaxLines(9);
                     layout.addView(nm);
                     et[0]=nm;
@@ -113,11 +106,11 @@ public class DisplayReviews extends ActionBarActivity {
 
                 }
                 else if(no_of_rev.equals("3")){
-                    al.add( obj.getString("pr1"));
+                    //al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    al.add( obj.getString("pr2"));
+                    //al.add( obj.getString("pr2"));
                     al.add(obj.getString("r2"));
-                    al.add(obj.getString("pr3"));
+                    //al.add(obj.getString("pr3"));
                     al.add(obj.getString("r3"));
                    // rev=al.get(0)+")"+al.get(1)+"\n\n"+al.get(2)+")"+al.get(3)+"\n\n"+al.get(4)+")"+al.get(5);
 
@@ -130,33 +123,33 @@ public class DisplayReviews extends ActionBarActivity {
                       et[i]=nm;
 
                   }
-                  int rt= Integer.parseInt(al.get(0).trim());
-                  String rating="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt){
-                          rating=rating+"\u2605";
-                      }
-                      else rating=rating+"\u2606";
-                  }
-                  et[0].setText("\n\n\n\n"+rating+"\n"+al.get(1));
-                  int rt1= Integer.parseInt(al.get(2).trim());
-                  String rating1="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt1){
-                          rating1=rating1+"\u2605";
-                      }
-                      else rating1=rating1+"\u2606";
-                  }
-                  et[1].setText("\n\n\n\n"+rating1 + "\n" + al.get(3));
-                  int rt2= Integer.parseInt(al.get(4).trim());
-                  String rating2="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt2){
-                          rating2=rating2+"\u2605";
-                      }
-                      else rating2=rating2+"\u2606";
-                  }
-                  et[2].setText("\n\n\n\n"+rating2 + "\n" + al.get(5));
+                  //int rt= Integer.parseInt(al.get(0).trim());
+                  //String rating="";
+                  //for (int i=0 ; i<5 ;i++){
+                   //   if(i<rt){
+                     //     rating=rating+"\u2605";
+                      //}
+                      //else rating=rating+"\u2606";
+                  //}
+                  et[0].setText("\n\n\n\n"+al.get(0));
+                  //int rt1= Integer.parseInt(al.get(2).trim());
+                  //String rating1="";
+                  //for (int i=0 ; i<5 ;i++){
+                      //if(i<rt1){
+                       //   rating1=rating1+"\u2605";
+                      //}
+                    //  else rating1=rating1+"\u2606";
+                  //}
+                  et[1].setText("\n\n\n\n" + al.get(1));
+                  //int rt2= Integer.parseInt(al.get(4).trim());
+                  //String rating2="";
+                  //for (int i=0 ; i<5 ;i++){
+                    //  if(i<rt2){
+                      //    rating2=rating2+"\u2605";
+                      //}
+                      //else rating2=rating2+"\u2606";
+                  //}
+                  et[2].setText("\n\n\n\n"+ al.get(2));
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
@@ -195,15 +188,15 @@ public class DisplayReviews extends ActionBarActivity {
                   // et.setText(rev);
                 }
                 else if(no_of_rev.equals("5")){
-                    al.add( obj.getString("pr1"));
+                    //al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    al.add( obj.getString("pr2"));
+                    //al.add( obj.getString("pr2"));
                     al.add( obj.getString("r2"));
-                    al.add( obj.getString("pr3"));
+                    //al.add( obj.getString("pr3"));
                     al.add( obj.getString("r3"));
-                    al.add( obj.getString("pr4"));
+                    //al.add( obj.getString("pr4"));
                     al.add( obj.getString("r4"));
-                    al.add( obj.getString("pr5"));
+                    //al.add( obj.getString("pr5"));
                     al.add(obj.getString("r5"));
                   for(int i=0;i<5;i++){
                       TextView nm=new TextView(this);
@@ -211,53 +204,52 @@ public class DisplayReviews extends ActionBarActivity {
                       nm.setMaxLines(9);
                       layout.addView(nm);
                       et[i]=nm;
-
                   }
-                  int rt= Integer.parseInt(al.get(0).trim());
-                  String rating="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt){
-                          rating=rating+"\u2605";
-                      }
-                      else rating=rating+"\u2606";
-                  }
-                  et[0].setText("\n\n\n\n"+rating+"\n"+al.get(1));
-                  int rt1= Integer.parseInt(al.get(2).trim());
-                  String rating1="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt1){
-                          rating1=rating1+"\u2605";
-                      }
-                      else rating1=rating1+"\u2606";
-                  }
-                  et[1].setText("\n\n\n\n"+rating1 + "\n" + al.get(3));
-                  int rt2= Integer.parseInt(al.get(4).trim());
-                  String rating2="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt2){
-                          rating2=rating2+"\u2605";
-                      }
-                      else rating2=rating2+"\u2606";
-                  }
-                  et[2].setText("\n\n\n\n"+rating2 + "\n" + al.get(5));
-                  int rt3= Integer.parseInt(al.get(6).trim());
-                  String rating3="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt3){
-                          rating3=rating3+"\u2605";
-                      }
-                      else rating3=rating3+"\u2606";
-                  }
-                  et[3].setText("\n\n\n\n"+rating3 + "\n" + al.get(7));
-                  int rt4= Integer.parseInt(al.get(8).trim());
-                  String rating4="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt4){
-                          rating4=rating4+"\u2605";
-                      }
-                      else rating4=rating4+"\u2606";
-                  }
-                  et[4].setText("\n\n\n\n"+rating4 + "\n" + al.get(9));
+                  //int rt= Integer.parseInt(al.get(0).trim());
+                  //String rating="";
+                  //for (int i=0 ; i<5 ;i++){
+                    //  if(i<rt){
+                      //    rating=rating+"\u2605";
+                      //}
+                      //else rating=rating+"\u2606";
+                  //}
+                  et[0].setText("\n\n\n\n"+al.get(0));
+                  //int rt1= Integer.parseInt(al.get(2).trim());
+                  //String rating1="";
+                 // for (int i=0 ; i<5 ;i++){
+                   //   if(i<rt1){
+                     //     rating1=rating1+"\u2605";
+                      //}
+                      //else rating1=rating1+"\u2606";
+                  //}
+                  et[1].setText("\n\n\n\n"+ al.get(1));
+                  //int rt2= Integer.parseInt(al.get(4).trim());
+                  //String rating2="";
+                  //for (int i=0 ; i<5 ;i++){
+                    //  if(i<rt2){
+                      //    rating2=rating2+"\u2605";
+                      //}
+                      //else rating2=rating2+"\u2606";
+                  //}
+                  et[2].setText("\n\n\n\n"+ al.get(2));
+                  //int rt3= Integer.parseInt(al.get(6).trim());
+                  //String rating3="";
+                  //for (int i=0 ; i<5 ;i++){
+                      //if(i<rt3){
+                        //  rating3=rating3+"\u2605";
+                      //}
+                    //  else rating3=rating3+"\u2606";
+                  //}
+                  et[3].setText("\n\n\n\n"+ al.get(3));
+                  //int rt4= Integer.parseInt(al.get(8).trim());
+                  //String rating4="";
+                  //for (int i=0 ; i<5 ;i++){
+                    //  if(i<rt4){
+                          //rating4=rating4+"\u2605";
+                      //}
+                      //else rating4=rating4+"\u2606";
+                  //}
+                  et[4].setText("\n\n\n\n"+ al.get(4));
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
@@ -322,25 +314,25 @@ public class DisplayReviews extends ActionBarActivity {
                     //et.setText(rev);
                 }
                 else {
-                    al.add( obj.getString("pr1"));
+                    //al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    al.add( obj.getString("pr2"));
+                    //al.add( obj.getString("pr2"));
                     al.add( obj.getString("r2"));
-                    al.add( obj.getString("pr3"));
+                    //al.add( obj.getString("pr3"));
                     al.add( obj.getString("r3"));
-                    al.add( obj.getString("pr4"));
+                    //al.add( obj.getString("pr4"));
                     al.add( obj.getString("r4"));
-                    al.add( obj.getString("pr5"));
+                    //al.add( obj.getString("pr5"));
                     al.add( obj.getString("r5"));
-                    al.add( obj.getString("pr6"));
+                    //al.add( obj.getString("pr6"));
                     al.add( obj.getString("r6"));
-                    al.add( obj.getString("pr7"));
+                    //al.add( obj.getString("pr7"));
                     al.add( obj.getString("r7"));
-                    al.add( obj.getString("pr8"));
+                    //al.add( obj.getString("pr8"));
                     al.add( obj.getString("r8"));
-                    al.add( obj.getString("pr9"));
+                    //al.add( obj.getString("pr9"));
                     al.add( obj.getString("r9"));
-                    al.add( obj.getString("pr10"));
+                    //al.add( obj.getString("pr10"));
                     al.add( obj.getString("r10"));
                   for(int i=0;i<10;i++){
                       TextView nm=new TextView(this);
@@ -350,96 +342,96 @@ public class DisplayReviews extends ActionBarActivity {
                       et[i]=nm;
 
                   }
-                  int rt= Integer.parseInt(al.get(0).trim());
-                  String rating="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt){
-                          rating=rating+"\u2605";
-                      }
-                      else rating=rating+"\u2606";
-                  }
-                  et[0].setText("\n\n\n\n"+rating+"\n"+al.get(1));
-                  int rt1= Integer.parseInt(al.get(2).trim());
-                  String rating1="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt1){
-                          rating1=rating1+"\u2605";
-                      }
-                      else rating1=rating1+"\u2606";
-                  }
-                  et[1].setText("\n\n\n\n"+rating1 + "\n" + al.get(3));
-                  int rt2= Integer.parseInt(al.get(4).trim());
-                  String rating2="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt2){
-                          rating2=rating2+"\u2605";
-                      }
-                      else rating2=rating2+"\u2606";
-                  }
-                  et[2].setText("\n\n\n\n"+rating2 + "\n" + al.get(5));
-                  int rt3= Integer.parseInt(al.get(6).trim());
-                  String rating3="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt3){
-                          rating3=rating3+"\u2605";
-                      }
-                      else rating3=rating3+"\u2606";
-                  }
-                  et[3].setText("\n\n\n\n"+rating3 + "\n" + al.get(7));
-                  int rt4= Integer.parseInt(al.get(8).trim());
-                  String rating4="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt4){
-                          rating4=rating4+"\u2605";
-                      }
-                      else rating4=rating4+"\u2606";
-                  }
-                  et[4].setText("\n\n\n\n"+rating4 + "\n" + al.get(9));
-                  int rt5= Integer.parseInt(al.get(10).trim());
-                  String rating5="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt5){
-                          rating5=rating5+"\u2605";
-                      }
-                      else rating5=rating5+"\u2606";
-                  }
-                  et[5].setText("\n\n\n\n"+rating5 + "\n" +al.get(11));
-                  int rt6= Integer.parseInt(al.get(12).trim());
-                  String rating6="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt6){
-                          rating6=rating6+"\u2605";
-                      }
-                      else rating6=rating6+"\u2606";
-                  }
-                  et[6].setText("\n\n\n\n"+rating6 + "\n" + al.get(13));
-                  int rt7= Integer.parseInt(al.get(14).trim());
-                  String rating7="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt7){
-                          rating7=rating7+"\u2605";
-                      }
-                      else rating7=rating7+"\u2606";
-                  }
-                  et[7].setText("\n\n\n\n"+rating7 + "\n" + al.get(15));
-                  int rt8= Integer.parseInt(al.get(16).trim());
-                  String rating8="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt8){
-                          rating8=rating8+"\u2605";
-                      }
-                      else rating8=rating8+"\u2606";
-                  }
-                  et[8].setText("\n\n\n\n"+rating8 + "\n" + al.get(17));
-                  int rt9= Integer.parseInt(al.get(18).trim());
-                  String rating9="";
-                  for (int i=0 ; i<5 ;i++){
-                      if(i<rt9){
-                          rating9=rating9+"\u2605";
-                      }
-                      else rating9=rating9+"\u2606";
-                  }
-                  et[9].setText("\n\n\n\n"+rating9 + "\n" + al.get(19));
+               //   int rt= Integer.parseInt(al.get(0).trim());
+                 // String rating="";
+                  //for (int i=0 ; i<5 ;i++){
+                    //  if(i<rt){
+                      //    rating=rating+"\u2605";
+                      //}
+                      //else rating=rating+"\u2606";
+                  //}
+                  et[0].setText("\n\n\n\n"+al.get(0));
+              //    int rt1= Integer.parseInt(al.get(2).trim());
+                //  String rating1="";
+                  //for (int i=0 ; i<5 ;i++){
+                    //  if(i<rt1){
+                      //    rating1=rating1+"\u2605";
+                      //}
+                      //else rating1=rating1+"\u2606";
+                  //}
+                  et[1].setText("\n\n\n\n"+ al.get(1));
+            //      int rt2= Integer.parseInt(al.get(4).trim());
+              //    String rating2="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt2){
+                    //      rating2=rating2+"\u2605";
+                      //}
+                     // else rating2=rating2+"\u2606";
+                  //}
+                  et[2].setText("\n\n\n\n"+ al.get(2));
+            //      int rt3= Integer.parseInt(al.get(6).trim());
+              //    String rating3="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt3){
+                    //      rating3=rating3+"\u2605";
+                      //}
+                      //else rating3=rating3+"\u2606";
+                  //}
+                  et[3].setText("\n\n\n\n" + al.get(3));
+            //      int rt4= Integer.parseInt(al.get(8).trim());
+              //    String rating4="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt4){
+                    //      rating4=rating4+"\u2605";
+                      //}
+                      //else rating4=rating4+"\u2606";
+                  //}
+                  et[4].setText("\n\n\n\n"+ al.get(4));
+            //      int rt5= Integer.parseInt(al.get(10).trim());
+              //    String rating5="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt5){
+                    //      rating5=rating5+"\u2605";
+                      //}
+                      //else rating5=rating5+"\u2606";
+                  //}
+                  et[5].setText("\n\n\n\n"+al.get(5));
+            //      int rt6= Integer.parseInt(al.get(12).trim());
+              //    String rating6="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt6){
+                    //      rating6=rating6+"\u2605";
+                      //}
+                      //else rating6=rating6+"\u2606";
+                  //}
+                  et[6].setText("\n\n\n\n"+ al.get(6));
+            //      int rt7= Integer.parseInt(al.get(14).trim());
+              //    String rating7="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt7){
+                    //      rating7=rating7+"\u2605";
+                      //}
+                     // else rating7=rating7+"\u2606";
+                  //}
+                  et[7].setText("\n\n\n\n"+ al.get(7));
+            //      int rt8= Integer.parseInt(al.get(16).trim());
+              //    String rating8="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt8){
+                    //      rating8=rating8+"\u2605";
+                      //}
+                      //else rating8=rating8+"\u2606";
+                  //}
+                  et[8].setText("\n\n\n\n" + al.get(8));
+            //      int rt9= Integer.parseInt(al.get(18).trim());
+              //    String rating9="";
+                //  for (int i=0 ; i<5 ;i++){
+                  //    if(i<rt9){
+                    //      rating9=rating9+"\u2605";
+                     // }
+                      //else rating9=rating9+"\u2606";
+                  //}
+                  et[9].setText("\n\n\n\n"+ al.get(9));
 
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
@@ -558,19 +550,7 @@ public class DisplayReviews extends ActionBarActivity {
                     //rev=al.get(0)+")"+al.get(1)+"\n\n"+al.get(2)+")"+al.get(3)+"\n\n"+al.get(4)+")"+al.get(5)+"\n\n"+al.get(6)+")"+al.get(7)+"\n\n"+al.get(8)+")"+al.get(9)+"\n\n"+al.get(10)+")"+al.get(11)+"\n\n"+al.get(12)+")"+al.get(13)+"\n\n"+al.get(14)+")"+al.get(15)+"\n\n"+al.get(16)+")"+al.get(17)+"\n\n"+al.get(18)+")"+al.get(19);
                     //et.setText(rev);
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-            } catch (JSONException e) {
+           } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 //Toast.makeText(c,e.toString(),Toast.LENGTH_LONG).show();
                 e.printStackTrace();
