@@ -539,9 +539,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating=rating+"\u2606";
                   //}
-                  String revs[]=al.get(0).split("|");
+                  String content="";
+                  String revs[]=al.get(0).split("\\|");
+                  if(!revs[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs[0].split(",");
 
-                      et[0].setText("\n\n\n\n" + revs[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content = content + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content=content+"<br/>";
+                  }
+                  if(!revs[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content = content + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content="<br/><br/><b>"+content+"</b><br/><br/>"+ revs[2].trim();
+                  et[0].setText(Html.fromHtml(content));
 
 
               //    int rt1= Integer.parseInt(al.get(2).trim());
@@ -552,13 +569,31 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating1=rating1+"\u2606";
                   //}
-                  String revs1[]=al.get(1).split("|");
+                  String content1="";
+                  String revs1[]=al.get(1).split("\\|");
+                  if(!revs1[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs1[0].split(",");
 
-                      et[1].setText("\n\n\n\n" + revs1[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content1 = content1 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content1=content1+"<br/>";
+                  }
+                  if(!revs1[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs1[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content1 = content1 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content1="<br/><br/><b>"+content1+"</b><br/><br/>"+ revs1[2].trim();
+                  et[1].setText(Html.fromHtml(content1));
 
 
 
-            //      int rt2= Integer.parseInt(al.get(4).trim());
+
+                  //      int rt2= Integer.parseInt(al.get(4).trim());
               //    String rating2="";
                 //  for (int i=0 ; i<5 ;i++){
                   //    if(i<rt2){
@@ -566,9 +601,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                      // else rating2=rating2+"\u2606";
                   //}
-                  String revs2[]=al.get(2).split("|");
+                  String content2="";
+                  String revs2[]=al.get(2).split("\\|");
+                  if(!revs2[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs2[0].split(",");
 
-                      et[2].setText("\n\n\n\n" + revs2[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content2 = content2 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content2=content2+"<br/>";
+                  }
+                  if(!revs2[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs2[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content2 = content2 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content2="<br/><br/><b>"+content2+"</b><br/><br/>"+ revs2[2].trim();
+                  et[2].setText(Html.fromHtml(content2));
 
 
             //      int rt3= Integer.parseInt(al.get(6).trim());
@@ -579,9 +631,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating3=rating3+"\u2606";
                   //}
-                  String revs3[]=al.get(3).split("|");
+                  String content3="";
+                  String revs3[]=al.get(3).split("\\|");
+                  if(!revs3[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs3[0].split(",");
 
-                      et[3].setText("\n\n\n\n" + revs3[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content3 = content3 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content3=content3+"<br/>";
+                  }
+                  if(!revs3[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs3[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content3 = content3 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content3="<br/><br/><b>"+content3+"</b><br/><br/>"+ revs3[2].trim();
+                  et[3].setText(Html.fromHtml(content3));
 
 
             //      int rt4= Integer.parseInt(al.get(8).trim());
@@ -592,9 +661,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating4=rating4+"\u2606";
                   //}
-                  String revs4[]=al.get(4).split("|");
+                  String content4="";
+                  String revs4[]=al.get(4).split("\\|");
+                  if(!revs4[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs4[0].split(",");
 
-                      et[4].setText("\n\n\n\n" + revs4[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content4 = content4 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content4=content4+"<br/>";
+                  }
+                  if(!revs4[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs4[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content4 = content4 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content4="<br/><br/><b>"+content4+"</b><br/><br/>"+ revs4[2].trim();
+                  et[4].setText(Html.fromHtml(content4));
 
 
             //      int rt5= Integer.parseInt(al.get(10).trim());
@@ -605,9 +691,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating5=rating5+"\u2606";
                   //}
-                  String revs5[]=al.get(5).split("|");
+                  String content5="";
+                  String revs5[]=al.get(5).split("\\|");
+                  if(!revs5[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs5[0].split(",");
 
-                      et[5].setText("\n\n\n\n" + revs5[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content5 = content5 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content5=content5+"<br/>";
+                  }
+                  if(!revs5[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs5[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content5 = content5 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content5="<br/><br/><b>"+content5+"</b><br/><br/>"+ revs5[2].trim();
+                  et[5].setText(Html.fromHtml(content5));
 
             //      int rt6= Integer.parseInt(al.get(12).trim());
               //    String rating6="";
@@ -617,9 +720,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating6=rating6+"\u2606";
                   //}
-                  String revs6[]=al.get(6).split("|");
+                  String content6="";
+                  String revs6[]=al.get(6).split("\\|");
+                  if(!revs6[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs6[0].split(",");
 
-                      et[6].setText("\n\n\n\n" + revs6[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content6 = content6 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content6=content6+"<br/>";
+                  }
+                  if(!revs6[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs6[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content6 = content6 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content6="<br/><br/><b>"+content6+"</b><br/><br/>"+ revs6[2].trim();
+                  et[6].setText(Html.fromHtml(content6));
 
             //      int rt7= Integer.parseInt(al.get(14).trim());
               //    String rating7="";
@@ -629,9 +749,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                      // else rating7=rating7+"\u2606";
                   //}
-                  String revs7[]=al.get(7).split("|");
+                  String content7="";
+                  String revs7[]=al.get(7).split("\\|");
+                  if(!revs7[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs7[0].split(",");
 
-                      et[7].setText("\n\n\n\n" + revs7[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content7 = content7 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content7=content7+"<br/>";
+                  }
+                  if(!revs7[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs7[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content7 = content7 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content7="<br/><br/><b>"+content7+"</b><br/><br/>"+ revs7[2].trim();
+                  et[7].setText(Html.fromHtml(content7));
 
             //      int rt8= Integer.parseInt(al.get(16).trim());
               //    String rating8="";
@@ -641,9 +778,26 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating8=rating8+"\u2606";
                   //}
-                  String revs8[]=al.get(8).split("|");
+                  String content8="";
+                  String revs8[]=al.get(8).split("\\|");
+                  if(!revs8[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs8[0].split(",");
 
-                      et[8].setText("\n\n\n\n" + revs8[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content8 = content8 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content8=content8+"<br/>";
+                  }
+                  if(!revs8[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs8[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content8 = content8 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content8="<br/><br/><b>"+content8+"</b><br/><br/>"+ revs8[2].trim();
+                  et[8].setText(Html.fromHtml(content8));
 
             //      int rt9= Integer.parseInt(al.get(18).trim());
               //    String rating9="";
@@ -653,9 +807,26 @@ public class DisplayReviews extends ActionBarActivity {
                      // }
                       //else rating9=rating9+"\u2606";
                   //}
-                  String revs9[]=al.get(9).split("|");
+                  String content9="";
+                  String revs9[]=al.get(9).split("\\|");
+                  if(!revs9[0].equalsIgnoreCase("empty")) {
+                      String pattr[] = revs9[0].split(",");
 
-                      et[9].setText("\n\n\n\n" + revs9[2].trim());
+                      for (int i = 0; i < pattr.length; i++) {
+                          pattr[i] = pattr[i].substring(0, 1).toUpperCase() + pattr[i].substring(1);
+                          content9 = content9 + pattr[i]+" &nbsp;" + "\uD83D\uDC96" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                      content9=content9+"<br/>";
+                  }
+                  if(!revs9[1].equalsIgnoreCase("empty")) {
+                      String nattr[] = revs9[1].split(",");
+                      for (int i = 0; i < nattr.length; i++) {
+                          nattr[i] = nattr[i].substring(0, 1).toUpperCase() + nattr[i].substring(1);
+                          content9 = content9 + nattr[i] + "&nbsp;"+"\uD83D\uDC94" + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                      }
+                  }
+                  content9="<br/><br/><b>"+content9+"</b><br/><br/>"+ revs9[2].trim();
+                  et[9].setText(Html.fromHtml(content9));
 
 
                   et[0].setOnClickListener(new View.OnClickListener() {
