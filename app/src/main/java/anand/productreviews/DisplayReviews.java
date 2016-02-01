@@ -75,7 +75,9 @@ public class DisplayReviews extends ActionBarActivity {
               if(no_of_rev.equals("1")){
                     //al.add( obj.getString("pr1"));
                     al.add( obj.getString("r1"));
-                    rev=al.get(0)+"\n\n";
+                    rev=al.get(0);
+                   String revs[]=rev.split("\\|");
+                    rev=revs[2].trim();
                   //  int rt= Integer.parseInt(al.get(0).trim());
                     //String rating="";
                     //for (int i=0 ; i<5 ;i++){
@@ -84,8 +86,20 @@ public class DisplayReviews extends ActionBarActivity {
                         //}
                        // else rating=rating+"\u2606";
                     //}
-                    TextView nm=new TextView(this);
-                    nm.setText("\n\n\n\n"+ rev );
+
+
+                  TextView nm=new TextView(this);
+                  String pattr[]=revs[0].split(",");
+                  String content="";
+                  for(int i=0;i<pattr.length;i++){
+                      content=content+pattr[i]+"\u263A";
+                  }
+                  String nattr[]=revs[1].split(",");
+                  for(int i=0;i<nattr.length;i++){
+                      content=content+nattr[i]+"\u2639";
+                  }
+                    content="\n\n\n\n"+content+"\n\n"+ rev;
+                    nm.setText(content);
                     nm.setMaxLines(9);
                     layout.addView(nm);
                     et[0]=nm;
@@ -131,7 +145,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating=rating+"\u2606";
                   //}
-                  et[0].setText("\n\n\n\n"+al.get(0));
+                  String revs[]=al.get(0).split("|");
+                      et[0].setText("\n\n\n\n" + revs[2].trim());
+
+
                   //int rt1= Integer.parseInt(al.get(2).trim());
                   //String rating1="";
                   //for (int i=0 ; i<5 ;i++){
@@ -140,7 +157,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                     //  else rating1=rating1+"\u2606";
                   //}
-                  et[1].setText("\n\n\n\n" + al.get(1));
+                  String revs1[]=al.get(1).split("|");
+                      et[1].setText("\n\n\n\n" + revs1[2].trim());
+
+
                   //int rt2= Integer.parseInt(al.get(4).trim());
                   //String rating2="";
                   //for (int i=0 ; i<5 ;i++){
@@ -149,7 +169,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating2=rating2+"\u2606";
                   //}
-                  et[2].setText("\n\n\n\n"+ al.get(2));
+                  String revs2[]=al.get(2).split("|");
+                      et[2].setText("\n\n\n\n" + revs2[2].trim());
+
+
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
@@ -213,7 +236,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating=rating+"\u2606";
                   //}
-                  et[0].setText("\n\n\n\n"+al.get(0));
+                  String revs[]=al.get(0).split("|");
+
+                      et[0].setText("\n\n\n\n" + revs[2].trim());
+
+
                   //int rt1= Integer.parseInt(al.get(2).trim());
                   //String rating1="";
                  // for (int i=0 ; i<5 ;i++){
@@ -222,7 +249,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating1=rating1+"\u2606";
                   //}
-                  et[1].setText("\n\n\n\n"+ al.get(1));
+                  String revs1[]=al.get(1).split("|");
+
+                      et[1].setText("\n\n\n\n" + revs1[2].trim());
+
+
                   //int rt2= Integer.parseInt(al.get(4).trim());
                   //String rating2="";
                   //for (int i=0 ; i<5 ;i++){
@@ -231,7 +262,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating2=rating2+"\u2606";
                   //}
-                  et[2].setText("\n\n\n\n"+ al.get(2));
+                  String revs2[]=al.get(2).split("|");
+
+                      et[2].setText("\n\n\n\n" + revs2[2].trim());
+
+
                   //int rt3= Integer.parseInt(al.get(6).trim());
                   //String rating3="";
                   //for (int i=0 ; i<5 ;i++){
@@ -240,7 +275,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                     //  else rating3=rating3+"\u2606";
                   //}
-                  et[3].setText("\n\n\n\n"+ al.get(3));
+                  String revs3[]=al.get(3).split("|");
+
+                      et[3].setText("\n\n\n\n" + revs3[2].trim());
+
                   //int rt4= Integer.parseInt(al.get(8).trim());
                   //String rating4="";
                   //for (int i=0 ; i<5 ;i++){
@@ -249,7 +287,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating4=rating4+"\u2606";
                   //}
-                  et[4].setText("\n\n\n\n"+ al.get(4));
+                  String revs4[]=al.get(4).split("|");
+
+                      et[4].setText("\n\n\n\n" + revs4[2].trim());
+
+
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
                       public void onClick(View v) {
@@ -350,7 +392,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating=rating+"\u2606";
                   //}
-                  et[0].setText("\n\n\n\n"+al.get(0));
+                  String revs[]=al.get(0).split("|");
+
+                      et[0].setText("\n\n\n\n" + revs[2].trim());
+
+
               //    int rt1= Integer.parseInt(al.get(2).trim());
                 //  String rating1="";
                   //for (int i=0 ; i<5 ;i++){
@@ -359,7 +405,12 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating1=rating1+"\u2606";
                   //}
-                  et[1].setText("\n\n\n\n"+ al.get(1));
+                  String revs1[]=al.get(1).split("|");
+
+                      et[1].setText("\n\n\n\n" + revs1[2].trim());
+
+
+
             //      int rt2= Integer.parseInt(al.get(4).trim());
               //    String rating2="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -368,7 +419,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                      // else rating2=rating2+"\u2606";
                   //}
-                  et[2].setText("\n\n\n\n"+ al.get(2));
+                  String revs2[]=al.get(2).split("|");
+
+                      et[2].setText("\n\n\n\n" + revs2[2].trim());
+
+
             //      int rt3= Integer.parseInt(al.get(6).trim());
               //    String rating3="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -377,7 +432,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating3=rating3+"\u2606";
                   //}
-                  et[3].setText("\n\n\n\n" + al.get(3));
+                  String revs3[]=al.get(3).split("|");
+
+                      et[3].setText("\n\n\n\n" + revs3[2].trim());
+
+
             //      int rt4= Integer.parseInt(al.get(8).trim());
               //    String rating4="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -386,7 +445,11 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating4=rating4+"\u2606";
                   //}
-                  et[4].setText("\n\n\n\n"+ al.get(4));
+                  String revs4[]=al.get(4).split("|");
+
+                      et[4].setText("\n\n\n\n" + revs4[2].trim());
+
+
             //      int rt5= Integer.parseInt(al.get(10).trim());
               //    String rating5="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -395,7 +458,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating5=rating5+"\u2606";
                   //}
-                  et[5].setText("\n\n\n\n"+al.get(5));
+                  String revs5[]=al.get(5).split("|");
+
+                      et[5].setText("\n\n\n\n" + revs5[2].trim());
+
             //      int rt6= Integer.parseInt(al.get(12).trim());
               //    String rating6="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -404,7 +470,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating6=rating6+"\u2606";
                   //}
-                  et[6].setText("\n\n\n\n"+ al.get(6));
+                  String revs6[]=al.get(6).split("|");
+
+                      et[6].setText("\n\n\n\n" + revs6[2].trim());
+
             //      int rt7= Integer.parseInt(al.get(14).trim());
               //    String rating7="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -413,7 +482,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                      // else rating7=rating7+"\u2606";
                   //}
-                  et[7].setText("\n\n\n\n"+ al.get(7));
+                  String revs7[]=al.get(7).split("|");
+
+                      et[7].setText("\n\n\n\n" + revs7[2].trim());
+
             //      int rt8= Integer.parseInt(al.get(16).trim());
               //    String rating8="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -422,7 +494,10 @@ public class DisplayReviews extends ActionBarActivity {
                       //}
                       //else rating8=rating8+"\u2606";
                   //}
-                  et[8].setText("\n\n\n\n" + al.get(8));
+                  String revs8[]=al.get(8).split("|");
+
+                      et[8].setText("\n\n\n\n" + revs8[2].trim());
+
             //      int rt9= Integer.parseInt(al.get(18).trim());
               //    String rating9="";
                 //  for (int i=0 ; i<5 ;i++){
@@ -431,7 +506,10 @@ public class DisplayReviews extends ActionBarActivity {
                      // }
                       //else rating9=rating9+"\u2606";
                   //}
-                  et[9].setText("\n\n\n\n"+ al.get(9));
+                  String revs9[]=al.get(9).split("|");
+
+                      et[9].setText("\n\n\n\n" + revs9[2].trim());
+
 
                   et[0].setOnClickListener(new View.OnClickListener() {
                       @Override
