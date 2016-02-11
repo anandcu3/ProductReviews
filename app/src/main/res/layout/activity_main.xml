@@ -40,7 +40,8 @@
         android:onClick="SelectNumber"
         android:layout_below="@+id/products_spinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"/>
 
     <TextView
         android:layout_width="match_parent"
