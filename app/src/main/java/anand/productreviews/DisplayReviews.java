@@ -63,11 +63,11 @@ public class DisplayReviews extends ActionBarActivity {
             String consarr[]=cons.split(",");
             String prosfull="";
             for(int i=0;i<prosarr.length;i++){
-                prosfull=prosfull+prosarr[i]+" "+"\uD83D\uDC4D " +"\n";
+                prosfull=prosfull+"\n"+prosarr[i]+" "+"\uD83D\uDC4D" ;
             }
             String consfull="";
             for(int i=0;i<consarr.length;i++){
-                consfull=consfull+consarr[i]+" "+"\uD83D\uDC4E " +"\n";
+                consfull=consfull+"\n"+consarr[i]+" "+"\uD83D\uDC4E";
             }
             TextView prosv=(TextView)findViewById(R.id.pros);
             prosv.setText(prosfull);
